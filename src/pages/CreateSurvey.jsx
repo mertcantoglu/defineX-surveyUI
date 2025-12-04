@@ -103,6 +103,25 @@ export default function CreateSurvey() {
   // save survey
   const handleSaveSurvey = async () => {
     try {
+      // INSERT_YOUR_CODE
+      // Validation: Check required fields
+      if (!surveyData.name.trim()) {
+        alert("Lütfen anket adını giriniz!");
+        return;
+      }
+      if (!surveyData.expireDate) {
+        alert("Lütfen anketin bitiş tarihini belirleyiniz!");
+        return;
+      }
+      if (surveyData.questions.length === 0) {
+        alert("Lütfen en az bir soru ekleyiniz!");
+        return;
+      }
+      if (surveyData.participants.length === 0) {
+        alert("Lütfen en az bir katılımcı ekleyiniz!");
+        return;
+      }
+
       await createSurvey(surveyData).unwrap()
       alert("Anket başarıyla kaydedildi!")
       dispatch(resetForm())
