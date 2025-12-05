@@ -12,13 +12,13 @@ import PrivateRoute from "@/components/PrivateRoute"
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <RootLayout />,
+    element: <PrivateRoute><RootLayout /></PrivateRoute>,
     children: [
-      { index: true, element: <PrivateRoute><Dashboard /></PrivateRoute> },
-      { path: "dashboard", element: <PrivateRoute><Dashboard /></PrivateRoute> },
-      { path: "surveys/create", element: <PrivateRoute><CreateSurvey /></PrivateRoute> },
-      { path: "surveys/:surveyId/edit", element: <PrivateRoute><EditSurvey /></PrivateRoute> },
-      { path: "surveys/:surveyId/results", element: <PrivateRoute><SurveyResults /></PrivateRoute> },
+      { index: true, element: <Dashboard /> },
+      { path: "dashboard", element: <Dashboard /> },
+      { path: "surveys/create", element: <CreateSurvey />},
+      { path: "surveys/:surveyId/edit", element: <EditSurvey /> },
+      { path: "surveys/:surveyId/results", element: <SurveyResults />},
     ],
   },
   {
